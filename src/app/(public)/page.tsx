@@ -1,77 +1,64 @@
 import Link from "next/link";
-import Image from "next/image";
 import { getHomeSettings } from "@/lib/db/public";
 
 export default async function HomePage() {
-  const home = await getHomeSettings();
+  // Guard: gdyby w Supabase nie było rekordu albo była chwilowa awaria,
+  // nie wywalamy całej strony.
+  const home = await getHomeSettings().catch(() => null);
 
-  // carousel_images: JSONB array (np. ["url1","url2"] albo [{url:".."}])
-  const raw = home.carousel_images as any[];
-  const images: string[] = (raw ?? [])
+  const raw = (home?.carousel_images ?? []) as any[];
+  const images: string[] = raw
     .map((item) => (typeof item === "string" ? item : item?.url))
     .filter(Boolean)
     .slice(0, 3);
 
-  return (
-    <section className="relative min-h-[calc(100vh-1px)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_55%)]" />
+  const heroBg = images[0] || null;
 
-      <div className="relative px-6 py-10 md:px-12 md:py-16">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
-            {home.hero_title}
+  const heroTitle = home?.hero_title ?? "Pilates & wellbeing dla firm";
+  const heroSubtitle =
+    home?.hero_subtitle ??
+    "Wyjątkowe zajęcia integracyjne, eventy i wyjazdy dla zespołów";
+  const ctaText = home?.cta_text ?? "Zaplanuj wydarzenie";
+  const ctaHref = home?.cta_href ?? "/kontakt";
+
+  return (
+    <section className="relative min-h-[calc(100vh-1px)] overflow-hidden">
+      {/* Background (CSS) — działa z dowolnym zewnętrznym URL, bez next/image config */}
+      <div
+        className="absolute inset-0 bg-neutral-950"
+        style={
+          heroBg
+            ? {
+                backgroundImage: `url("${heroBg}")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }
+            : undefined
+        }
+      />
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/70" />
+      <div className="absolute inset-0 bg-black/10" />
+
+      {/* Content */}
+      <div className="relative flex min-h-[calc(100vh-1px)] items-center px-6 py-12 md:px-12">
+        <div className="ml-auto max-w-[680px] text-center md:text-right">
+          <h1 className="font-serif text-4xl md:text-5xl leading-tight text-[#f0e4d8]">
+            {heroTitle}
           </h1>
 
-          <p className="mt-4 text-neutral-300 text-base md:text-lg">
-            {home.hero_subtitle}
+          <p className="mt-4 font-serif text-lg md:text-xl text-[#d7c5b1]">
+            {heroSubtitle}
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <div className="mt-8 flex justify-center md:justify-end">
             <Link
-              href={home.cta_href}
-              className="inline-flex items-center justify-center rounded-full bg-amber-700 px-5 py-3 text-sm font-medium hover:bg-amber-600"
+              href={ctaHref}
+              className="inline-flex items-center justify-center rounded-md bg-[#a56b2b] px-6 py-3 font-serif text-base text-neutral-950 hover:bg-[#b3732f]"
             >
-              {home.cta_text}
+              {ctaText}
             </Link>
-
-            <Link
-              href="/oferta-dla-firm"
-              className="inline-flex items-center justify-center rounded-full border border-neutral-700 px-5 py-3 text-sm font-medium text-neutral-200 hover:bg-neutral-900"
-            >
-              Zobacz ofertę
-            </Link>
-          </div>
-        </div>
-
-        <div className="mt-12 max-w-5xl">
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-950/50 p-6">
-            <div className="text-sm text-neutral-300 font-medium">
-              Carousel (max 3 zdjęcia) — ustawiane w CMS
-            </div>
-
-            {images.length === 0 ? (
-              <div className="mt-4 text-sm text-neutral-400">
-                Brak zdjęć w carousel. Dodaj je w CMS (Home settings).
-              </div>
-            ) : (
-              <div className="mt-4 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
-                {images.map((src, idx) => (
-                  <div
-                    key={src}
-                    className="relative h-52 w-[85%] sm:w-[48%] md:w-[32%] flex-none snap-start overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900"
-                  >
-                    <Image
-                      src={src}
-                      alt={`Carousel ${idx + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 85vw, 32vw"
-                      priority={idx === 0}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         </div>
       </div>
