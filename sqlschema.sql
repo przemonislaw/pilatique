@@ -342,3 +342,40 @@ using (bucket_id = 'public-images' and public.is_admin());
 -- =========================
 -- DONE ✅
 -- =========================
+
+-- =========================
+-- CMS PAGES: default rows for submenu pages
+-- =========================
+insert into public.pages (page_key, title, content_markdown)
+values
+  (
+    'oferta-dla-firm/organizacja-jednostkowych-eventow',
+    'Organizacja jednostkowych eventów',
+    '## Organizacja jednostkowych eventów\n\nUzupełnij treść tej sekcji z poziomu panelu admina.\n\n- Przykładowy punkt 1\n- Przykładowy punkt 2'
+  ),
+  (
+    'oferta-dla-firm/core-glow',
+    'Core&Glow',
+    '## Core&Glow\n\nUzupełnij treść tej sekcji z poziomu panelu admina.'
+  ),
+  (
+    'oferta-dla-firm/stars-stretches',
+    'Stars&Stretches',
+    '## Stars&Stretches\n\nUzupełnij treść tej sekcji z poziomu panelu admina.'
+  ),
+  (
+    'oferta-dla-firm/organizacja-wyjazdow-integracyjnych',
+    'Organizacja wyjazdów integracyjnych',
+    '## Organizacja wyjazdów integracyjnych\n\nUzupełnij treść tej sekcji z poziomu panelu admina.'
+  ),
+  (
+    'dlaczego-warto/korzysci-dla-kregoslupa',
+    'Korzyści dla kręgosłupa',
+    '## Korzyści dla kręgosłupa\n\nUzupełnij treść tej sekcji z poziomu panelu admina.'
+  ),
+  (
+    'dlaczego-warto/poprawa-postury',
+    'Poprawa postury',
+    '## Poprawa postury\n\nUzupełnij treść tej sekcji z poziomu panelu admina.'
+  )
+on conflict (page_key) do nothing;
