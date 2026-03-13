@@ -5,14 +5,26 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
-const ofertaBullets = [
-  "Organizacja jednostkowych eventów",
-  "Core&Glow",
-  "Stars&Stretches",
-  "Organizacja wyjazdów integracyjnych",
+const ofertaLinks = [
+  {
+    label: "Organizacja jednostkowych eventów",
+    href: "/oferta-dla-firm/organizacja-jednostkowych-eventow",
+  },
+  { label: "Core&Glow", href: "/oferta-dla-firm/core-glow" },
+  { label: "Stars&Stretches", href: "/oferta-dla-firm/stars-stretches" },
+  {
+    label: "Organizacja wyjazdów integracyjnych",
+    href: "/oferta-dla-firm/organizacja-wyjazdow-integracyjnych",
+  },
 ];
 
-const dlaczegoBullets = ["Korzyści dla kręgosłupa", "Poprawa postury"];
+const dlaczegoLinks = [
+  {
+    label: "Korzyści dla kręgosłupa",
+    href: "/dlaczego-warto/korzysci-dla-kregoslupa",
+  },
+  { label: "Poprawa postury", href: "/dlaczego-warto/poprawa-postury" },
+];
 
 function HamburgerIcon() {
   return (
@@ -60,7 +72,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
             width={900}
             height={600}
             priority
-            className="h-[190px] w-full object-cover"
+            className="h-[190px] w-full bg-neutral-900 object-contain"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/10 via-neutral-950/40 to-neutral-950/80" />
           <div className="absolute bottom-4 left-5">
@@ -89,42 +101,50 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
       {/* Sekcje */}
       <div className="px-6 pt-6 space-y-8 text-[#e2d3c5]">
         <div>
-          <Link
-            href="/oferta-dla-firm"
-            onClick={onNavigate}
+          <h2
             className={[
               "block font-serif text-lg tracking-[0.18em] uppercase",
               active === "/oferta-dla-firm" ? "text-[#f0e4d8]" : "text-[#e2d3c5]",
             ].join(" ")}
           >
             Oferta dla firm
-          </Link>
+          </h2>
           <ul className="mt-3 space-y-2 text-sm text-[#d7c5b1]">
-            {ofertaBullets.map((t) => (
-              <li key={t} className="flex gap-2">
+            {ofertaLinks.map((item) => (
+              <li key={item.href} className="flex gap-2">
                 <span className="mt-[6px] h-[3px] w-[3px] shrink-0 rounded-full bg-[#d7c5b1]/80" />
-                <span>{t}</span>
+                <Link
+                  href={item.href}
+                  onClick={onNavigate}
+                  className="hover:text-[#f0e4d8] transition-colors"
+                >
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <Link
-            href="/dlaczego-warto"
-            onClick={onNavigate}
+          <h2
             className={[
               "block font-serif text-lg tracking-[0.18em] uppercase",
               active === "/dlaczego-warto" ? "text-[#f0e4d8]" : "text-[#e2d3c5]",
             ].join(" ")}
           >
             Dlaczego warto
-          </Link>
+          </h2>
           <ul className="mt-3 space-y-2 text-sm text-[#d7c5b1]">
-            {dlaczegoBullets.map((t) => (
-              <li key={t} className="flex gap-2">
+            {dlaczegoLinks.map((item) => (
+              <li key={item.href} className="flex gap-2">
                 <span className="mt-[6px] h-[3px] w-[3px] shrink-0 rounded-full bg-[#d7c5b1]/80" />
-                <span>{t}</span>
+                <Link
+                  href={item.href}
+                  onClick={onNavigate}
+                  className="hover:text-[#f0e4d8] transition-colors"
+                >
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -195,7 +215,7 @@ export default function Sidebar() {
                     width={36}
                     height={36}
                     priority
-                    className="h-9 w-9 object-cover"
+                    className="h-9 w-9 object-contain"
                   />
                 </div>
                 <div className="font-serif tracking-[0.18em] text-[#f0e4d8]">
@@ -256,7 +276,7 @@ export default function Sidebar() {
                         width={36}
                         height={36}
                         priority
-                        className="h-9 w-9 object-cover"
+                        className="h-9 w-9 object-contain"
                       />
                     </div>
                     <div className="font-serif tracking-[0.18em] text-[#f0e4d8]">
