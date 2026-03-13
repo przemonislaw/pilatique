@@ -24,7 +24,15 @@ function isAbortError(e: unknown) {
   return (e as any)?.name === "AbortError" || msg.includes("Signal is aborted");
 }
 
-const ALLOWED_KEYS = ["o-nas", "oferta-dla-firm", "dlaczego-warto"] as const;
+const ALLOWED_KEYS = [
+  "o-nas",
+  "oferta-dla-firm/organizacja-jednostkowych-eventow",
+  "oferta-dla-firm/core-and-glow",
+  "oferta-dla-firm/stars-and-stretches",
+  "oferta-dla-firm/organizacja-wyjazdow-integracyjnych",
+  "dlaczego-warto/korzysci-dla-kregoslupa",
+  "dlaczego-warto/poprawa-postury",
+] as const;
 
 export default function AdminPagesPage() {
   const [view, setView] = useState<ViewState>({ status: "loading" });
@@ -117,8 +125,18 @@ export default function AdminPagesPage() {
 
   function prettyTitle(k: (typeof ALLOWED_KEYS)[number]) {
     if (k === "o-nas") return "O nas";
-    if (k === "oferta-dla-firm") return "Oferta dla firm";
-    return "Dlaczego warto";
+    if (k === "oferta-dla-firm/organizacja-jednostkowych-eventow") {
+      return "Organizacja jednostkowych eventów";
+    }
+    if (k === "oferta-dla-firm/core-and-glow") return "Core&Glow";
+    if (k === "oferta-dla-firm/stars-and-stretches") return "Stars&Stretches";
+    if (k === "oferta-dla-firm/organizacja-wyjazdow-integracyjnych") {
+      return "Organizacja wyjazdów integracyjnych";
+    }
+    if (k === "dlaczego-warto/korzysci-dla-kregoslupa") {
+      return "Korzyści dla kręgosłupa";
+    }
+    return "Poprawa postury";
   }
 
   function openKey(k: (typeof ALLOWED_KEYS)[number]) {
