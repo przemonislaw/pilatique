@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 
 const allowedSlugs = [
   "organizacja-jednostkowych-eventow",
-  "core-glow",
-  "stars-stretches",
+  "core-and-glow",
+  "stars-and-stretches",
   "organizacja-wyjazdow-integracyjnych",
 ] as const;
 

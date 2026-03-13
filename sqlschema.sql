@@ -354,12 +354,12 @@ values
     '## Organizacja jednostkowych eventów\n\nUzupełnij treść tej sekcji z poziomu panelu admina.\n\n- Przykładowy punkt 1\n- Przykładowy punkt 2'
   ),
   (
-    'oferta-dla-firm/core-glow',
+    'oferta-dla-firm/core-and-glow',
     'Core&Glow',
     '## Core&Glow\n\nUzupełnij treść tej sekcji z poziomu panelu admina.'
   ),
   (
-    'oferta-dla-firm/stars-stretches',
+    'oferta-dla-firm/stars-and-stretches',
     'Stars&Stretches',
     '## Stars&Stretches\n\nUzupełnij treść tej sekcji z poziomu panelu admina.'
   ),

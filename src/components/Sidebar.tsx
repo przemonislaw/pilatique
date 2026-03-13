@@ -10,8 +10,8 @@ const ofertaLinks = [
     label: "Organizacja jednostkowych eventów",
     href: "/oferta-dla-firm/organizacja-jednostkowych-eventow",
   },
-  { label: "Core&Glow", href: "/oferta-dla-firm/core-glow" },
-  { label: "Stars&Stretches", href: "/oferta-dla-firm/stars-stretches" },
+  { label: "Core&Glow", href: "/oferta-dla-firm/core-and-glow" },
+  { label: "Stars&Stretches", href: "/oferta-dla-firm/stars-and-stretches" },
   {
     label: "Organizacja wyjazdów integracyjnych",
     href: "/oferta-dla-firm/organizacja-wyjazdow-integracyjnych",
