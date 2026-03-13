@@ -48,3 +48,19 @@ export async function getPublishedPostBySlug(slug: string) {
   if (error) throw new Error(`getPublishedPostBySlug(${slug}) error: ${error.message}`);
   return data;
 }
+
+
+/** CONTACT: public insert */
+export async function sendContactMessage(input: {
+  name: string;
+  email: string;
+  message: string;
+}) {
+  const { error } = await supabase.from("contact_messages").insert({
+    name: input.name,
+    email: input.email,
+    message: input.message,
+  });
+
+  if (error) throw new Error(`sendContactMessage error: ${error.message}`);
+}
