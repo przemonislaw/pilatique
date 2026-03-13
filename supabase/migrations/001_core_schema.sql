@@ -1,0 +1,3 @@
+-- Placeholder migration file.
+-- Użyj istniejącego schema SQL projektu jako source of truth.
+-- Ten plik zostawiam jako punkt startowy do dalszego porządkowania migracji.
