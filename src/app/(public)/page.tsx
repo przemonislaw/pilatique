@@ -6,9 +6,15 @@ export default async function HomePage() {
   // nie wywalamy całej strony.
   const home = await getHomeSettings().catch(() => null);
 
-  const raw = (home?.carousel_images ?? []) as any[];
+  const raw = Array.isArray(home?.carousel_images) ? home.carousel_images : [];
   const images: string[] = raw
-    .map((item) => (typeof item === "string" ? item : item?.url))
+    .map((item) => {
+      if (typeof item === "string") return item;
+      if (item && typeof item === "object" && "url" in item && typeof item.url === "string") {
+        return item.url;
+      }
+      return null;
+    })
     .filter(Boolean)
     .slice(0, 3);
 
