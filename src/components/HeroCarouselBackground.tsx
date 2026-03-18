@@ -16,7 +16,7 @@ export default function HeroCarouselBackground({ images }: { images: string[] })
 
   // fallback gdy brak zdjęć
   if (items.length === 0) {
-    return <div className="absolute inset-0 bg-neutral-950" />;
+    return <div className="absolute inset-0 bg-[#f0eee9]" />;
   }
 
   return (
@@ -25,7 +25,7 @@ export default function HeroCarouselBackground({ images }: { images: string[] })
         <div
           key={`${url}-${i}`}
           className={[
-            "absolute inset-0 bg-neutral-950 transition-opacity duration-700",
+            "absolute inset-0 bg-[#f0eee9] transition-opacity duration-1000",
             i === idx ? "opacity-100" : "opacity-0",
           ].join(" ")}
           style={{

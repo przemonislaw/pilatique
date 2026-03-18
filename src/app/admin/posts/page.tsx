@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase/client";
+import AdminMarkdownEditor from "@/components/AdminMarkdownEditor";
 
 type PostRow = {
   id: string;
@@ -437,13 +438,11 @@ export default function AdminPostsPage() {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm text-[#d7c5b1]">Content (Markdown)</label>
-                <textarea
+              <div className="rich-editor-wrapper">
+                <label className="block text-sm text-[#d7c5b1] mb-2">Content (Markdown)</label>
+                <AdminMarkdownEditor
                   value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  rows={14}
-                  className="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-950/40 px-4 py-3 font-mono text-sm text-neutral-100 outline-none focus:border-[#a56b2b]"
+                  onChange={(val) => setContent(val)}
                 />
               </div>
 

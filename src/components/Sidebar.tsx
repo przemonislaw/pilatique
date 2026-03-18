@@ -3,171 +3,91 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-const ofertaLinks = [
-  {
-    label: "Organizacja jednostkowych eventów",
-    href: "/oferta-dla-firm/organizacja-jednostkowych-eventow",
-  },
-  { label: "Core&Glow", href: "/oferta-dla-firm/core-and-glow" },
-  { label: "Stars&Stretches", href: "/oferta-dla-firm/stars-and-stretches" },
-  {
-    label: "Organizacja wyjazdów integracyjnych",
-    href: "/oferta-dla-firm/organizacja-wyjazdow-integracyjnych",
-  },
-];
-
-const dlaczegoLinks = [
-  {
-    label: "Korzyści dla kręgosłupa",
-    href: "/dlaczego-warto/korzysci-dla-kregoslupa",
-  },
-  { label: "Poprawa postury", href: "/dlaczego-warto/poprawa-postury" },
+const navLinks = [
+  { label: "O NAS", href: "/o-nas", icon: "info" },
+  { label: "Oferta dla firm", type: "header", icon: "business" },
+  { label: "Organizacja wyjazdów integracyjnych", href: "/oferta-dla-firm/organizacja-wyjazdow-integracyjnych", icon: "group_work" },
+  { label: "Organizacja jednostkowych eventów", href: "/oferta-dla-firm/organizacja-jednostkowych-eventow", icon: "event" },
+  { label: "Core&Glow", href: "/oferta-dla-firm/core-and-glow", icon: "fitness_center" },
+  { label: "Stars&Stretches", href: "/oferta-dla-firm/stars-and-stretches", icon: "wb_sunny" },
+  { label: "Dlaczego warto", type: "header", icon: "help_outline" },
+  { label: "Korzyści dla kręgosłupa", href: "/dlaczego-warto/korzysci-dla-kregoslupa", icon: "accessibility_new" },
+  { label: "Poprawa postury", href: "/dlaczego-warto/poprawa-postury", icon: "straighten" },
+  { label: "Formularz kontaktowy", href: "/kontakt", icon: "mail" },
 ];
 
 function HamburgerIcon() {
-  return (
-    <span aria-hidden className="flex h-10 w-10 items-center justify-center">
-      <span className="relative block h-[12px] w-[18px]">
-        <span className="absolute left-0 top-0 h-[2px] w-full rounded bg-[#e2d3c5]" />
-        <span className="absolute left-0 top-[5px] h-[2px] w-full rounded bg-[#e2d3c5]" />
-        <span className="absolute left-0 top-[10px] h-[2px] w-full rounded bg-[#e2d3c5]" />
-      </span>
-    </span>
-  );
+  return <span className="material-symbols-outlined text-[28px]">menu</span>;
 }
 
 function CloseIcon() {
-  return (
-    <span aria-hidden className="flex h-10 w-10 items-center justify-center">
-      <span className="relative block h-[16px] w-[16px]">
-        <span className="absolute left-0 top-[7px] h-[2px] w-full rotate-45 rounded bg-[#e2d3c5]" />
-        <span className="absolute left-0 top-[7px] h-[2px] w-full -rotate-45 rounded bg-[#e2d3c5]" />
-      </span>
-    </span>
-  );
+  return <span className="material-symbols-outlined text-[28px]">close</span>;
 }
 
 function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
-  const pathname = usePathname();
-
-  const active = useMemo(() => {
-    const p = pathname || "/";
-    if (p.startsWith("/oferta-dla-firm")) return "/oferta-dla-firm";
-    if (p.startsWith("/dlaczego-warto")) return "/dlaczego-warto";
-    if (p.startsWith("/o-nas")) return "/o-nas";
-    if (p.startsWith("/kontakt")) return "/kontakt";
-    return "";
-  }, [pathname]);
+  const pathname = usePathname() || "/";
 
   return (
-    <div className="flex h-full flex-col">
-      {/* Logo */}
-      <div className="px-6 pt-6">
-        <div className="relative w-full overflow-hidden rounded-md border border-neutral-800 bg-neutral-950/40">
+    <>
+      <div className="flex flex-col items-start px-8 pt-12 pb-8">
+        <Link href="/" onClick={onNavigate}>
           <Image
             src="/Logo.jpeg"
             alt="Pilatique"
-            width={900}
-            height={600}
+            width={64}
+            height={64}
             priority
-            className="h-[190px] w-full bg-neutral-900 object-contain"
+            className="w-16 h-16 rounded-full border-2 border-white/20 mb-8 object-cover mix-blend-multiply bg-white"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/10 via-neutral-950/40 to-neutral-950/80" />
-          <div className="absolute bottom-4 left-5">
-            <div className="font-serif text-2xl tracking-[0.15em]">PILATIQUE</div>
-          </div>
-        </div>
-      </div>
-
-      {/* O NAS */}
-      <div className="px-6 pt-6">
-        <Link
-          href="/o-nas"
-          onClick={onNavigate}
-          className={[
-            "block w-full rounded-sm px-4 py-3 font-serif text-lg tracking-[0.2em]",
-            "border border-neutral-800/70",
-            active === "/o-nas"
-              ? "bg-[#d7c5b1]/90 text-neutral-950"
-              : "bg-transparent text-[#e2d3c5] hover:bg-white/5",
-          ].join(" ")}
-        >
-          O NAS
         </Link>
+        <h1 className="font-headline italic text-3xl tracking-tight text-white mb-1 drop-shadow-md">
+          PILATIQUE
+        </h1>
+        <p className="font-label uppercase tracking-widest text-[11px] font-bold text-white/70 mb-4">
+          The Radiant Core
+        </p>
       </div>
-
-      {/* Sekcje */}
-      <div className="px-6 pt-6 space-y-8 text-[#e2d3c5]">
-        <div>
-          <h2
-            className={[
-              "block font-serif text-lg tracking-[0.18em] uppercase",
-              active === "/oferta-dla-firm" ? "text-[#f0e4d8]" : "text-[#e2d3c5]",
-            ].join(" ")}
-          >
-            Oferta dla firm
-          </h2>
-          <ul className="mt-3 space-y-2 text-sm text-[#d7c5b1]">
-            {ofertaLinks.map((item) => (
-              <li key={item.href} className="flex gap-2">
-                <span className="mt-[6px] h-[3px] w-[3px] shrink-0 rounded-full bg-[#d7c5b1]/80" />
-                <Link
-                  href={item.href}
-                  onClick={onNavigate}
-                  className="hover:text-[#f0e4d8] transition-colors"
-                >
+      <div className="flex flex-col space-y-1 w-full px-8 pb-12">
+        {navLinks.map((item) => {
+          if (item.type === "header") {
+            return (
+              <div
+                key={item.label}
+                className="py-3 px-4 flex items-center gap-3 mt-4 mb-1 text-white/50"
+              >
+                <span className="material-symbols-outlined">{item.icon}</span>
+                <span className="font-label uppercase tracking-widest text-[13px] font-bold">
                   {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+                </span>
+              </div>
+            );
+          }
 
-        <div>
-          <h2
-            className={[
-              "block font-serif text-lg tracking-[0.18em] uppercase",
-              active === "/dlaczego-warto" ? "text-[#f0e4d8]" : "text-[#e2d3c5]",
-            ].join(" ")}
-          >
-            Dlaczego warto
-          </h2>
-          <ul className="mt-3 space-y-2 text-sm text-[#d7c5b1]">
-            {dlaczegoLinks.map((item) => (
-              <li key={item.href} className="flex gap-2">
-                <span className="mt-[6px] h-[3px] w-[3px] shrink-0 rounded-full bg-[#d7c5b1]/80" />
-                <Link
-                  href={item.href}
-                  onClick={onNavigate}
-                  className="hover:text-[#f0e4d8] transition-colors"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+          const isExactActive = pathname === item.href;
+          
+          return (
+            <Link
+              key={item.href!}
+              href={item.href!}
+              onClick={onNavigate}
+              className={[
+                "rounded-lg py-3 px-4 flex items-center gap-3 transition-all duration-300 ease-in-out",
+                isExactActive
+                  ? "text-white font-black bg-white/10 backdrop-blur-md shadow-sm border border-white/10"
+                  : "text-white/80 font-medium hover:bg-white/20",
+              ].join(" ")}
+            >
+              <span className="material-symbols-outlined">{item.icon}</span>
+              <span className="font-label uppercase tracking-widest text-[13px] font-bold">
+                {item.label}
+              </span>
+            </Link>
+          );
+        })}
       </div>
-
-      {/* CTA */}
-      <div className="mt-auto px-6 pb-6 pt-8">
-        <Link
-          href="/kontakt"
-          onClick={onNavigate}
-          className={[
-            "inline-flex w-full items-center justify-center rounded-md px-4 py-3",
-            "font-serif text-base tracking-wide",
-            active === "/kontakt"
-              ? "bg-[#a56b2b] text-neutral-950"
-              : "bg-[#7b4b1f] text-[#f0e4d8] hover:bg-[#8a5524]",
-          ].join(" ")}
-        >
-          Formularz kontaktowy
-        </Link>
-      </div>
-    </div>
+    </>
   );
 }
 
@@ -176,15 +96,12 @@ export default function Sidebar() {
 
   useEffect(() => {
     if (!open) return;
-
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
     window.addEventListener("keydown", onKeyDown);
-
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKeyDown);
@@ -192,116 +109,65 @@ export default function Sidebar() {
   }, [open]);
 
   return (
-    <aside className="relative border-b border-neutral-800 md:border-b-0 md:border-r">
+    <>
       {/* Desktop sidebar */}
-      <div className="hidden md:block h-screen sticky top-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_60%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#3a2417] via-[#24170f] to-neutral-950" />
-        <div className="relative h-full">
-          <SidebarContent />
-        </div>
-      </div>
+      <nav className="hidden md:flex flex-col h-screen w-80 fixed left-0 top-0 z-50 bg-gradient-to-b from-[#9E381A] to-[#FFA358] overflow-y-auto shadow-[24px_0_48px_rgba(158,56,26,0.15)] overflow-x-hidden">
+        <SidebarContent />
+      </nav>
 
-      {/* Mobile topbar + drawer */}
-      <div className="md:hidden sticky top-0 z-40">
-        <div className="relative border-b border-neutral-800 bg-neutral-950/75 backdrop-blur">
-          <div className="mx-auto max-w-[1400px] px-4">
-            <div className="flex h-14 items-center justify-between">
-              <Link href="/" className="flex items-center gap-3">
-                <div className="h-9 w-9 overflow-hidden rounded-md border border-neutral-800 bg-neutral-900">
-                  <Image
-                    src="/Logo.jpeg"
-                    alt="Pilatique"
-                    width={36}
-                    height={36}
-                    priority
-                    className="h-9 w-9 object-contain"
-                  />
-                </div>
-                <div className="font-serif tracking-[0.18em] text-[#f0e4d8]">
-                  PILATIQUE
-                </div>
-              </Link>
-
-              <button
-                type="button"
-                onClick={() => setOpen(true)}
-                aria-label="Otwórz menu"
-                aria-expanded={open}
-                className="rounded-full border border-neutral-800 bg-neutral-900/30 hover:bg-neutral-900/50"
-              >
-                <HamburgerIcon />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Drawer */}
-        <div
-          className={[
-            "fixed inset-0 z-50",
-            open ? "pointer-events-auto" : "pointer-events-none",
-          ].join(" ")}
-          aria-hidden={!open}
-        >
+      {/* Mobile TopAppBar */}
+      <header className="fixed top-0 w-full z-40 bg-background/90 backdrop-blur-xl border-b border-outline-variant/20 flex md:hidden justify-between items-center px-6 py-4">
+        <Link href="/" className="font-headline italic text-2xl tracking-tight text-primary pt-1">
+          PILATIQUE
+        </Link>
+        <div className="flex gap-4 text-primary items-center">
+          <Link href="/kontakt" aria-label="Kontakt">
+            <span className="material-symbols-outlined text-[28px] hover:scale-105 transition-transform">mail</span>
+          </Link>
           <button
             type="button"
-            aria-label="Zamknij menu"
-            onClick={() => setOpen(false)}
-            className={[
-              "absolute inset-0 transition-opacity duration-200",
-              open ? "bg-black/60 opacity-100" : "bg-black/0 opacity-0",
-            ].join(" ")}
-          />
-
-          <div
-            className={[
-              "absolute left-0 top-0 h-full w-[86%] max-w-[360px]",
-              "border-r border-neutral-800 bg-neutral-950",
-              "transition-transform duration-200 ease-out",
-              open ? "translate-x-0" : "-translate-x-full",
-            ].join(" ")}
-            role="dialog"
-            aria-modal="true"
+            onClick={() => setOpen(true)}
+            aria-label="Otwórz menu"
+            className="hover:scale-105 transition-transform"
           >
-            <div className="relative h-full">
-              <div className="absolute inset-0 bg-gradient-to-b from-[#3a2417] via-[#24170f] to-neutral-950" />
-              <div className="relative flex h-full flex-col">
-                <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-800">
-                  <div className="flex items-center gap-3">
-                    <div className="h-9 w-9 overflow-hidden rounded-md border border-neutral-800 bg-neutral-900">
-                      <Image
-                        src="/Logo.jpeg"
-                        alt="Pilatique"
-                        width={36}
-                        height={36}
-                        priority
-                        className="h-9 w-9 object-contain"
-                      />
-                    </div>
-                    <div className="font-serif tracking-[0.18em] text-[#f0e4d8]">
-                      PILATIQUE
-                    </div>
-                  </div>
+            <HamburgerIcon />
+          </button>
+        </div>
+      </header>
 
-                  <button
-                    type="button"
-                    onClick={() => setOpen(false)}
-                    className="rounded-full border border-neutral-800 bg-neutral-900/30 hover:bg-neutral-900/50"
-                    aria-label="Zamknij"
-                  >
-                    <CloseIcon />
-                  </button>
-                </div>
-
-                <div className="h-[calc(100%-57px)] overflow-y-auto">
-                  <SidebarContent onNavigate={() => setOpen(false)} />
-                </div>
-              </div>
+      {/* Mobile Drawer */}
+      <div
+        className={["fixed inset-0 z-50 md:hidden", open ? "pointer-events-auto" : "pointer-events-none"].join(" ")}
+        aria-hidden={!open}
+      >
+        <button
+          type="button"
+          aria-label="Zamknij menu"
+          onClick={() => setOpen(false)}
+          className={["absolute inset-0 transition-opacity duration-300", open ? "bg-black/40 backdrop-blur-sm opacity-100" : "bg-transparent opacity-0"].join(" ")}
+        />
+        <div
+          className={["absolute right-0 top-0 h-full w-[85%] max-w-[360px] bg-gradient-to-b from-[#9E381A] to-[#FFA358] shadow-2xl transition-transform duration-300 ease-in-out", open ? "translate-x-0" : "translate-x-full"].join(" ")}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="relative h-full flex flex-col">
+            <div className="absolute top-4 right-4 z-50">
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="rounded-full w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/20 shadow-sm"
+                aria-label="Zamknij"
+              >
+                <CloseIcon />
+              </button>
+            </div>
+            <div className="h-full overflow-y-auto overflow-x-hidden">
+              <SidebarContent onNavigate={() => setOpen(false)} />
             </div>
           </div>
         </div>
       </div>
-    </aside>
+    </>
   );
 }

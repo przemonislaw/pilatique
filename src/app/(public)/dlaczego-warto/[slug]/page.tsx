@@ -11,9 +11,9 @@ export function generateStaticParams() {
 export default async function WhySubPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }> | { slug: string };
 }) {
-  const { slug } = params;
+  const { slug } = await Promise.resolve(params);
 
   if (!allowedSlugs.includes(slug as (typeof allowedSlugs)[number])) {
     notFound();
@@ -26,9 +26,11 @@ export default async function WhySubPage({
   }
 
   return (
-    <div className="px-6 py-10 md:px-12">
-      <h1 className="text-3xl font-semibold">{page.title}</h1>
-      <div className="mt-6">
+    <div className="px-6 py-12 md:px-16 lg:py-20 lg:px-24 max-w-4xl mx-auto">
+      <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#111111] font-light tracking-tight pb-4">
+        {page.title}
+      </h1>
+      <div className="mt-8 md:mt-12">
         <Markdown content={page.content_markdown} />
       </div>
     </div>

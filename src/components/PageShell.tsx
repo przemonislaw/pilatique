@@ -1,14 +1,16 @@
 import Sidebar from "./Sidebar";
+import Footer from "./Footer";
 
 export default function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-1 md:grid-cols-[340px_1fr]">
-          <Sidebar />
-          <main className="min-h-screen">{children}</main>
-        </div>
+    <>
+      <Sidebar />
+      <div className="md:ml-80 flex flex-col min-h-screen relative pt-[72px] md:pt-0">
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 }

@@ -39,9 +39,9 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="mt-8 max-w-2xl space-y-4">
+    <form onSubmit={onSubmit} className="max-w-2xl space-y-6">
       <div>
-        <label htmlFor="name" className="mb-1 block text-sm text-neutral-300">
+        <label htmlFor="name" className="mb-1.5 block text-sm font-sans tracking-wide text-charcoal-900 uppercase">
           Imię i nazwisko
         </label>
         <input
@@ -49,12 +49,12 @@ export default function ContactForm() {
           name="name"
           required
           maxLength={120}
-          className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-neutral-100 outline-none focus:border-[#a56b2b]"
+          className="w-full rounded-none border-b border-charcoal-900/30 bg-transparent px-2 py-3 text-charcoal-900 outline-none focus:border-charcoal-900 transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1 block text-sm text-neutral-300">
+        <label htmlFor="email" className="mb-1.5 block text-sm font-sans tracking-wide text-charcoal-900 uppercase">
           E-mail
         </label>
         <input
@@ -63,12 +63,12 @@ export default function ContactForm() {
           type="email"
           required
           maxLength={160}
-          className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-neutral-100 outline-none focus:border-[#a56b2b]"
+          className="w-full rounded-none border-b border-charcoal-900/30 bg-transparent px-2 py-3 text-charcoal-900 outline-none focus:border-charcoal-900 transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1 block text-sm text-neutral-300">
+        <label htmlFor="message" className="mb-1.5 block text-sm font-sans tracking-wide text-charcoal-900 uppercase">
           Wiadomość
         </label>
         <textarea
@@ -77,23 +77,25 @@ export default function ContactForm() {
           required
           rows={6}
           maxLength={5000}
-          className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-neutral-100 outline-none focus:border-[#a56b2b]"
+          className="w-full rounded-none border-b border-charcoal-900/30 bg-transparent px-2 py-3 text-charcoal-900 outline-none focus:border-charcoal-900 transition-colors resize-y"
         />
       </div>
 
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="inline-flex items-center justify-center rounded-md bg-[#a56b2b] px-6 py-3 font-serif text-neutral-950 hover:bg-[#b3732f] disabled:cursor-not-allowed disabled:opacity-60"
-      >
-        {status === "loading" ? "Wysyłanie..." : "Wyślij wiadomość"}
-      </button>
+      <div className="pt-6">
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="inline-flex items-center justify-center border-b border-charcoal-900 pb-1 font-sans text-sm tracking-[0.15em] uppercase text-charcoal-900 transition-opacity hover:opacity-60 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          {status === "loading" ? "Wysyłanie..." : "Wyślij wiadomość"}
+        </button>
+      </div>
 
       {status === "success" ? (
-        <p className="text-sm text-emerald-400">Dziękujemy! Wiadomość została wysłana.</p>
+        <p className="text-sm tracking-wide text-[#111111] bg-emerald-100/50 border border-emerald-200 p-4 rounded-sm">Dziękujemy! Wiadomość została wysłana.</p>
       ) : null}
 
-      {status === "error" && error ? <p className="text-sm text-rose-400">{error}</p> : null}
+      {status === "error" && error ? <p className="text-sm tracking-wide text-[#111111] bg-rose-100/50 border border-rose-200 p-4 rounded-sm">{error}</p> : null}
     </form>
   );
 }
