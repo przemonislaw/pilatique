@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 
 export default function HeroCarouselBackground({ images }: { images: string[] }) {
   const items = useMemo(() => (images ?? []).filter(Boolean).slice(0, 3), [images]);
@@ -28,13 +29,15 @@ export default function HeroCarouselBackground({ images }: { images: string[] })
             "absolute inset-0 bg-[#f0eee9] transition-opacity duration-1000",
             i === idx ? "opacity-100" : "opacity-0",
           ].join(" ")}
-          style={{
-            backgroundImage: `url("${url}")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
+        >
+          <Image
+            src={url}
+            alt="Pilates Studio Background"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
       ))}
     </div>
   );

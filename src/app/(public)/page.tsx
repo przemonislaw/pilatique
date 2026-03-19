@@ -1,17 +1,14 @@
 import Link from "next/link";
+import HeroCarousel from "@/components/HeroCarousel";
 
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
       <section className="relative h-[921px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            className="w-full h-full object-cover grayscale-[20%] opacity-90 scale-105"
-            alt="Serene luxury pilates studio interior with warm natural lighting and copper accents"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLLS4kCYiLjBMox9mai5BirCq12Ga1-BaQFhqf4_fd088gupGTPnP9ukDSFxxfLEzlEJTPE1UugGvz1psnVmovcgFhNV8wLqiXVqEl2g4TeI_P69LgPJ2gzMKghMas88vcYEbpn3-RjDFlETph3DqZPKZI48N6DnleoSqZ3DYKoZu8YjrBT4lDEqnf9VcDiT52ucL6nJ3ogivw_y-pPbAltIlcnm1tY-LcCFGxgw6XGqB0VAT-NzPEd2j0fMZiw-kwXrxBLVkSvg8s"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent md:block hidden"></div>
+        <div className="absolute inset-0 z-0 bg-[#fff8f6]">
+          <HeroCarousel />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent md:block hidden"></div>
           <div className="absolute inset-0 bg-background/20"></div>
         </div>
         
@@ -19,8 +16,8 @@ export default function HomePage() {
           <span className="font-label uppercase tracking-[0.3em] text-[12px] font-extrabold text-primary mb-6 block">
             Premium Studio Pilates
           </span>
-          <h2 className="font-headline text-6xl md:text-8xl leading-[1.1] text-on-surface mb-8">
-            Nasza Pasja,<br /><span className="italic text-primary">Twoja Równowaga</span>
+          <h2 className="font-headline text-6xl md:text-8xl leading-[1.1] text-on-surface mb-8 [text-shadow:_0_0_30px_rgb(255_248_246_/_1),_0_0_60px_rgb(255_248_246_/_0.8)]">
+            Nasza pasja,<br /><span className="italic text-primary">Twoja równowaga</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-6 mt-12">
             <Link href="/kontakt" className="bg-gradient-to-r from-[#9E381A] to-[#FFA358] text-white font-label uppercase tracking-widest text-[13px] font-bold px-10 py-5 rounded-full shadow-lg hover:scale-[1.02] transition-transform duration-400 flex items-center justify-center gap-3">

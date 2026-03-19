@@ -1,0 +1,21 @@
+# Pilatique Project Guidelines
+
+## Project Identity
+- **Type:** Pilates Studio Website & Admin CMS.
+- **Tech Stack:** Next.js 15 (App Router), TypeScript, Tailwind CSS, Supabase.
+- **Design Inspiration:** `https://udenpilates.com` (warm, airy, elevated).
+
+## UI / UX Design System (CRITICAL)
+- **Colors:** The background is ALWAYS a warm light beige (`bg-background` / `#fff8f6`). DO NOT default to pure white `#ffffff` for backgrounds unless it's a specific elevated element. Avoid pure black `#000000`; use `on-background` (`#291712`) or `on-surface` for text so the contrast is softer.
+- **Typography:** 
+  - Headlines/Titles: ALWAYS use the serif font (`font-headline` / Newsreader).
+  - Body/UI Text: ALWAYS use the sans-serif font (`font-body` / Manrope).
+- **Spacing:** Maintain an "airy" feel utilizing generous padding and margins. Do not clutter elements. Favor whitespace over density.
+- **Interactions:** Use subtle micro-interactions (e.g., smooth opacity changes on hover).
+
+## Architecture & Development Rules
+- **Components:** Default to React Server Components (RSC). Only use `"use client"` when hooks (`useState`, `usePathname`) or browser APIs are strictly required.
+- **Routing:** Differentiate the public site (`(public)`) layout from the CMS (`admin`) layout. They should not share the same heavy wrappers if the admin panel doesn't need them.
+- **Data Fetching:** Fetch data server-side via Supabase whenever possible out of components. Use proper RLS (Row Level Security) on the backend.
+- **Styling:** ONLY use Tailwind classes. Do not use inline styles. Stick strictly to the semantic color names defined in `tailwind.config.ts`.
+- **Code Quality:** Write strict TypeScript, prioritize modularity, and place shared components in `src/components`.

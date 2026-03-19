@@ -99,51 +99,6 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Locations Section */}
-      <section className="max-w-6xl mx-auto mt-20 mb-20 px-6 md:px-16 lg:px-24">
-        <h2 className="font-headline text-4xl text-primary mb-12 italic">Nasze studia</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Warszawa */}
-          <div className="group relative bg-surface-container rounded-[2rem] overflow-hidden">
-            <div className="aspect-video relative">
-              <img
-                className="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 transition-all duration-700"
-                alt="Stylized map showing Warsaw city center location"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-8FgJJfDPycTtSA7m_Qcviwh8Yi5BL-ZdTOYHle2RV9IqBu-bwdbIaNpRt12AzUgnhyQKzL185PM7fegrpsoCbfrw0p6xskvGnteKZPBEtP2FyhHFb8Aqq15ik4qABsMoeBKYFTClQKW4RHTRw-jGScsaKzJJQcb05y0AG6lITeuD-c8VPJLawa7_sUaeG4Xg_9AyAVa4YblPpwjiSMgjIk6b58srB_2XULQx1-4QLBYDBnpr4nhcNvETswrgU80YD-eOdWPQEKUz"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
-            </div>
-            <div className="p-8">
-              <h3 className="font-headline text-2xl text-primary mb-2">Wrocław</h3>
-              <p className="font-body text-on-surface-variant mb-6" style={{ height: "24px" }}></p>
-              <button className="flex items-center gap-2 text-primary font-label text-xs font-bold uppercase tracking-widest hover:gap-4 transition-all">
-                Pokaż na mapie
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Kraków */}
-          <div className="group relative bg-surface-container rounded-[2rem] overflow-hidden">
-            <div className="aspect-video relative">
-              <img
-                className="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 transition-all duration-700"
-                alt="Stylized map showing Krakow Kazimierz district location"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvURPcBlSrTPu0f0kByTxQhqSRP4pDpqyHFP0uOZZTH492Kh8goEjF63Pe9rAdwTvemH8KYpiq7UIkw7h8_d2_t5nJyQWFAn96yrmTsqWJfNhg7DpYt1YR8DIYyp1EEMHiIFWINwB7UeYMEumFL7hdC6_-KOV9Ei0Uqd8Hc7_hO2O29gDHQTFbMr5FQbrXu9WWarF7pn9-4JLmRa9XbbLcW4HjUm2oOK2971ER0iG7Gkx0sIelI-PlKgQL-dxsc40JqQB7xqxILSp5"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
-            </div>
-            <div className="p-8">
-              <h3 className="font-headline text-2xl text-primary mb-2">Kraków</h3>
-              <p className="font-body text-on-surface-variant mb-6">ul. Miodowa 12, 31-055 Kraków</p>
-              <button className="flex items-center gap-2 text-primary font-label text-xs font-bold uppercase tracking-widest hover:gap-4 transition-all">
-                Pokaż na mapie
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

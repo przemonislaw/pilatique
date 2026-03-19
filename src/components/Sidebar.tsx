@@ -31,23 +31,20 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 
   return (
     <>
-      <div className="flex flex-col items-start px-8 pt-12 pb-8">
+      <div className="flex flex-col items-center px-8 pt-12 pb-8 text-center">
         <Link href="/" onClick={onNavigate}>
           <Image
             src="/Logo.jpeg"
             alt="Pilatique"
-            width={64}
-            height={64}
+            width={128}
+            height={128}
             priority
-            className="w-16 h-16 rounded-full border-2 border-white/20 mb-8 object-cover mix-blend-multiply bg-white"
+            className="w-32 h-32 rounded-full border-2 border-white/20 mb-6 object-cover mix-blend-screen invert grayscale contrast-200 brightness-150"
           />
         </Link>
-        <h1 className="font-headline italic text-3xl tracking-tight text-white mb-1 drop-shadow-md">
+        <h1 className="font-headline italic text-3xl tracking-tight text-white mb-2 drop-shadow-md">
           PILATIQUE
         </h1>
-        <p className="font-label uppercase tracking-widest text-[11px] font-bold text-white/70 mb-4">
-          The Radiant Core
-        </p>
       </div>
       <div className="flex flex-col space-y-1 w-full px-8 pb-12">
         {navLinks.map((item) => {

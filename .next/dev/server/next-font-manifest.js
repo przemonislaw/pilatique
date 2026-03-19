@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/user/Documents/Pilatique/antigravityPilatique/src/app/layout\":[\"static/media/cc978ac5ee68c2b6-s.p.woff2\",\"static/media/665e920483964785-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

@@ -4,14 +4,16 @@ import ContactForm from "@/components/ContactForm";
 export default function OrganizationEventsPage() {
   return (
     <>
-      <section className="mb-20 pt-24 md:pt-16 px-6 md:px-20 max-w-7xl mx-auto">
+      {/* Hero Section */}
+      <section className="mb-20 pt-24 md:pt-16 px-6 md:px-20 max-w-7xl mx-auto mt-16">
         <div className="flex flex-col md:flex-row gap-12 items-end">
           <div className="flex-1">
+            <span className="font-label uppercase tracking-widest text-[#9E381A] font-bold text-sm block mb-4">Potion & Restore</span>
             <h2 className="font-headline text-5xl md:text-7xl text-primary leading-tight mb-8">
-              Wyjątkowe wydarzenia <span className="italic block">szyte na miarę</span>
+              Wyjątkowe wydarzenia <span className="italic block text-[#9E381A]">szyte na miarę</span>
             </h2>
             <p className="font-body text-xl text-on-surface-variant max-w-2xl leading-relaxed">
-              Tworzymy ekskluzywne spotkania, które łączą precyzję Pilatesu z atmosferą luksusowego wellness. Każdy event to unikalna podróż do wnętrza siły i spokoju.
+              Połączenie łagodnego Pilatesu i kreatywnego experience, zaprojektowane z myślą o regeneracji i przywróceniu energii. Format stworzony na wieczory panieńskie, urodziny i integracje zespołów.
             </p>
           </div>
           <div className="hidden md:flex w-32 h-32 rounded-full border border-outline-variant/30 items-center justify-center p-4">
@@ -20,31 +22,50 @@ export default function OrganizationEventsPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 px-6 md:px-20 max-w-7xl mx-auto">
-        <div className="bg-surface-container-low p-10 rounded-xl shadow-[0_24px_48px_-12px_rgba(126,33,4,0.08)] group hover:bg-surface-container-high transition-colors duration-500">
-          <span className="material-symbols-outlined text-primary text-3xl mb-6">business</span>
-          <h3 className="font-headline text-2xl mb-4 text-primary">Corporate events</h3>
-          <p className="font-body text-on-surface-variant leading-relaxed">Luksusowe warsztaty teambuildingowe skupione na ergonomii pracy i redukcji stresu kadry zarządzającej.</p>
-        </div>
-        <div className="bg-primary-container p-10 rounded-xl shadow-2xl relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-          <span className="material-symbols-outlined text-white text-3xl mb-6">celebration</span>
-          <h3 className="font-headline text-2xl mb-4 text-white">Birthday workshops</h3>
-          <p className="font-body text-white/80 leading-relaxed">Urodziny w stylu "Glow". Sesja Pilatesu przy świecach, a po niej rytuały regeneracyjne i zdrowe poczęstunki.</p>
-        </div>
-        <div className="bg-surface-container-low p-10 rounded-xl shadow-[0_24px_48px_-12px_rgba(126,33,4,0.08)] group hover:bg-surface-container-high transition-colors duration-500">
-          <span className="material-symbols-outlined text-primary text-3xl mb-6">groups</span>
-          <h3 className="font-headline text-2xl mb-4 text-primary">Private groups</h3>
-          <p className="font-body text-on-surface-variant leading-relaxed">Kameralne spotkania dla przyjaciół szukających aktywnego wypoczynku w estetycznych wnętrzach naszego studia.</p>
+      {/* Struktura Eventu (Timeline style mapped from markdown) */}
+      <section className="py-24 px-6 md:px-20 bg-surface-container-low mb-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center">
+            <h3 className="font-headline text-4xl text-primary">Struktura eventu</h3>
+            <p className="text-on-surface-variant mt-4 font-body text-lg">Zaprojektowane by dodać energii i kreatywności.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:bg-surface-container-high transition-colors duration-500">
+              <span className="material-symbols-outlined text-primary text-3xl mb-4">self_improvement</span>
+              <h4 className="font-headline text-2xl mb-2 text-primary">Wprowadzenie</h4>
+              <span className="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-4 block">15 min</span>
+              <p className="font-body text-sm text-on-surface-variant">Spokojne wejście w ruch, oddech, mobilizacja, wyciszenie napięć. Przygotowanie ciała do pracy regeneracyjnej.</p>
+            </div>
+            <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:bg-surface-container-high transition-colors duration-500">
+              <span className="material-symbols-outlined text-primary text-3xl mb-4">waves</span>
+              <h4 className="font-headline text-2xl mb-2 text-primary">Restore Flow</h4>
+              <span className="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-4 block">60 min</span>
+              <p className="font-body text-sm text-on-surface-variant">Regenerujący Pilates. Nacisk na krążenie, płynność ruchu i oddech. Flow dodaje energii i nie męczy – idealne na wieczór.</p>
+            </div>
+            <div className="bg-primary-container p-8 rounded-xl shadow-xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              <span className="material-symbols-outlined text-white text-3xl mb-4">science</span>
+              <h4 className="font-headline text-2xl mb-2 text-white">Potion Experience</h4>
+              <span className="font-label text-xs text-white/80 uppercase tracking-widest mb-4 block">90 min</span>
+              <p className="font-body text-sm text-white/90">Wybór olejków, zapachów i samodzielne przygotowanie autorskiego produktu. Każdy uczestnik wychodzi ze spersonalizowanym olejkiem.</p>
+            </div>
+            <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:bg-surface-container-high transition-colors duration-500">
+              <span className="material-symbols-outlined text-primary text-3xl mb-4">spa</span>
+              <h4 className="font-headline text-2xl mb-2 text-primary">Regeneracja</h4>
+              <span className="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-4 block">15 min</span>
+              <p className="font-body text-sm text-on-surface-variant">Wyciszenie i spokojne, harmonijne zakończenie całego wydarzenia.</p>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Details and Visuals */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start mb-24 px-6 md:px-20 max-w-7xl mx-auto">
         <div className="space-y-12">
           <div className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl">
               <img
-                className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
                 alt="High-end pilates studio"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBclFIeQzqyjDEH0uHF7Sqp7V6fuxNp5BEX40D4JotiIY-X7fp35o-jY0C2Id1-Xi1GUZzyqxmZ7Yh24x-IUgMs08HX3GP6ZX8-FNHSdfCMa9jF5gJzaulGdsDQqKZ1EjIYr5lmlnoFuWkU61DszXtIQzPf0WrPkiSnqnSRpsKEywkrJqzFlqny6SwIt1ZPzPxmhVjCWxcZ4AKZWNFmhG7x3O1qT7DwoquZob_OfsXdd2ClxbmB10Pamm4z006NX3DDQUmecfpWzEN6"
               />
@@ -53,26 +74,46 @@ export default function OrganizationEventsPage() {
               <p className="font-label text-center text-[10px] uppercase tracking-widest font-bold leading-tight">Estetyka Spotkań • Ruch • Harmonia</p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 h-64">
-            <div className="rounded-xl overflow-hidden shadow-lg">
-              <img className="w-full h-full object-cover" alt="Detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYKNHmMYFklFhYMzCvAF6V3n0wIlWvJ4OIXo-JoGLzc_C8h38tH7IndYpC4e1yzEM_JRj9LH4xD6Znn_BS0uTb3qOzgWpukihNV0bovcfy7Irg4-s3O2bHawxYz71nRx7kqvplLGvMN0AyvRzZJt2l1TYhUsODNKGnYTwwwM55INqyYS7co_Au45loXHd-jGY0X_1UjJi5m7JO47oXYcmBU5iFeVccR9SL7J-x1q5SkD2MHWl5Ghxvo6vyr1hgma4TnbWOuSL9zYZ6" />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-lg mt-8">
-              <img className="w-full h-full object-cover" alt="Spa area" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ4vxeNQm5-s5NTrU-hHQJgPMaV3Y_KKQh-8WfgPR_mO9w8cKZN2XTA0WTZvogkdcwEL59DlMRmwfTRkP7r4YQGzXuFSVU7BGscqfChb79Bs6MxpXPbG8-rXgdc_2oybu_lMishPIwWLCiiZCxWy7gzTwnhvNDpzQ2E0Xjtoz-o4wRCJTuIMshnyTx_7I4MYIGrz_1nwfxiJW_nABlomsY9TcCy_9-cRyRuZ-4uZ353vbXpy3LElfRmd-luOz4Ayzdq2Dqf-Zgo5wb" />
-            </div>
-          </div>
         </div>
-        <div className="bg-surface-container-highest p-12 md:p-16 rounded-3xl shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 opacity-10">
-            <span className="material-symbols-outlined text-9xl">mail</span>
+        
+        <div className="space-y-10">
+          <div>
+            <h3 className="font-headline text-3xl mb-4 text-primary">Co dostajesz i co zapewniamy?</h3>
+            <ul className="space-y-3 font-body text-on-surface-variant">
+              <li className="flex gap-3"><span className="material-symbols-outlined text-primary text-xl">check</span> Certyfikowanego instruktora i autorski scenariusz Restore Flow.</li>
+              <li className="flex gap-3"><span className="material-symbols-outlined text-primary text-xl">check</span> Prowadzenie części Potion i materiały do olejków.</li>
+              <li className="flex gap-3"><span className="material-symbols-outlined text-primary text-xl">check</span> Reformery lub maty z piękną, estetyczną oprawą.</li>
+              <li className="flex gap-3"><span className="material-symbols-outlined text-primary text-xl">check</span> Pełną sesję oraz własny olejek na pamiątkę.</li>
+            </ul>
           </div>
-          <h3 className="font-headline text-4xl text-primary mb-12 relative z-10">Zapytaj o twój event</h3>
-          <div className="relative z-10">
-              <ContactForm />
+          
+          <div className="bg-surface-container p-8 rounded-2xl border border-outline-variant/20">
+            <h4 className="font-label font-bold uppercase tracking-widest text-[#9E381A] mb-4 text-xs">Informacje Organizacyjne</h4>
+            <div className="space-y-4">
+              <div>
+                <strong className="block text-sm mb-1 text-primary">Customizacja:</strong>
+                <p className="text-sm text-on-surface-variant">Regeneracyjny/energetyzujący trening, wybór olejków, czas trwania, język (PL/EN).</p>
+              </div>
+              <div>
+                <strong className="block text-sm mb-1 text-primary">Forma i Koszt (Orientacyjnie):</strong>
+                <p className="text-sm text-on-surface-variant">
+                  • <strong>Prywatnie:</strong> od 260-320 zł/os (maty), od 320-400 zł/os (reformery do 6 osób).<br/>
+                  • <strong>Dla firm:</strong> od 2400-3600 zł/event (maty), od 3600-4800 zł/event (reformery).
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-surface-container-highest p-8 md:p-12 rounded-3xl shadow-xl relative overflow-hidden">
+            <h3 className="font-headline text-3xl text-primary mb-8 relative z-10">Zarezerwuj swój event</h3>
+            <div className="relative z-10">
+                <ContactForm />
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Inspirations section kept intact as well */}
       <section className="mb-24 px-6 md:px-20 max-w-7xl mx-auto">
         <h4 className="font-headline text-3xl text-primary mb-12 text-center">Inspiracje i realizacje</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:h-[600px]">
@@ -91,7 +132,7 @@ export default function OrganizationEventsPage() {
           <div className="col-span-2 md:col-span-2 h-80 md:h-full bg-surface-container rounded-2xl overflow-hidden group relative">
             <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Inspiration 4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbD44igjlm9Dl0F1Yx-y-W9zJgjoPkjX8eWRdwuGadCCbTXvLnVtQvv_4TOIGzP8GSTWaYSwqe3W4DoE5THASvqRI-EVBiLaq2OHWxKoWP1zDTIUqLrPsfvBGOyP7tY9XMBTJEVko4mRDrSA_f7PL3D4fK4rWreEVwN5AkBd2Xq8Wk1FrvGj-IUShKcu9WRMq_7yaadv3C9W_v0_xh84_ySpjBZ-rxaKQxAr8TSRKm-zXiosu6viYSjuX28XKzPJs5Cq7BKJb6snqb" />
             <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-white font-label text-[10px] tracking-widest uppercase">Warsztaty Corporate Glow 2025</p>
+              <p className="text-white font-label text-[10px] tracking-widest uppercase">Warsztaty Potion & Restore 2025</p>
             </div>
           </div>
         </div>

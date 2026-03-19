@@ -1,6 +1,6 @@
 import { Newsreader, Manrope } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
-import PageShell from "@/components/PageShell";
 
 const newsreader = Newsreader({
   subsets: ["latin-ext"],
@@ -14,9 +14,31 @@ const manrope = Manrope({
   display: "swap",
 });
 
-export const metadata = {
-  title: "Pilatique",
-  description: "Pilates & wellbeing dla firm",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://pilatique.pl"),
+  title: {
+    template: "%s | Pilatique",
+    default: "Pilatique - Studio Pilates & Wellbeing",
+  },
+  description:
+    "Profesjonalne studio Pilates. Oferujemy treningi personalne, zdrowy kręgosłup oraz wellbeing dla firm. Zadbaj o ciało i umysł z naszymi ekspertami.",
+  keywords: [
+    "pilates",
+    "studio pilates",
+    "wellbeing",
+    "pilates dla firm",
+    "zdrowy kręgosłup",
+    "trening personalny",
+  ],
+  openGraph: {
+    title: "Pilatique - Studio Pilates & Wellbeing",
+    description:
+      "Profesjonalne studio Pilates. Oferujemy treningi personalne, zdrowy kręgosłup oraz wellbeing dla firm.",
+    url: "https://pilatique.pl",
+    siteName: "Pilatique",
+    locale: "pl_PL",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -35,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${newsreader.variable} ${manrope.variable} font-body bg-background text-on-surface antialiased selection:bg-primary-container selection:text-white`}
       >
-        <PageShell>{children}</PageShell>
+        {children}
       </body>
     </html>
   );

@@ -58,7 +58,55 @@ export default {
         body: ["var(--font-manrope)", "sans-serif"],
         label: ["var(--font-manrope)", "sans-serif"],
       },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            color: theme("colors.on-background"),
+            fontFamily: theme("fontFamily.body").join(", "),
+            h1: {
+              fontFamily: theme("fontFamily.headline").join(", "),
+              color: theme("colors.on-background"),
+              fontWeight: "500",
+            },
+            h2: {
+              fontFamily: theme("fontFamily.headline").join(", "),
+              color: theme("colors.on-background"),
+              fontWeight: "500",
+            },
+            h3: {
+              fontFamily: theme("fontFamily.headline").join(", "),
+              color: theme("colors.on-background"),
+              fontWeight: "500",
+            },
+            h4: {
+              fontFamily: theme("fontFamily.headline").join(", "),
+              color: theme("colors.on-background"),
+            },
+            strong: {
+              color: theme("colors.on-background"),
+            },
+            a: {
+              color: theme("colors.primary"),
+            },
+            "ul > li::marker": {
+              color: theme("colors.on-background"),
+            },
+            "ol > li::marker": {
+              color: theme("colors.on-background"),
+            },
+            hr: {
+              borderColor: theme("colors.outline-variant"),
+            },
+            blockquote: {
+              color: theme("colors.on-surface-variant"),
+              borderLeftColor: theme("colors.primary"),
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+  ],
 } satisfies Config;

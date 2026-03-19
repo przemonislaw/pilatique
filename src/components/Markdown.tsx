@@ -3,7 +3,7 @@ import remarkGfm from "remark-gfm";
 
 export default function Markdown({ content }: { content: string }) {
   return (
-    <div className="markdown-content">
+    <div className="prose max-w-none">
       <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
     </div>
   );
