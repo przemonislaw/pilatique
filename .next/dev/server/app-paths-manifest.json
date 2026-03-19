@@ -1,7 +1,0 @@
-{
-  "/(public)/page": "app/(public)/page.js",
-  "/(public)/oferta-dla-firm/organizacja-wyjazdow-integracyjnych/page": "app/(public)/oferta-dla-firm/organizacja-wyjazdow-integracyjnych/page.js",
-  "/(public)/dlaczego-warto/poprawa-postury/page": "app/(public)/dlaczego-warto/poprawa-postury/page.js",
-  "/(public)/o-nas/page": "app/(public)/o-nas/page.js",
-  "/(public)/kontakt/page": "app/(public)/kontakt/page.js"
-}
