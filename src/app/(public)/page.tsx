@@ -75,62 +75,62 @@ export default function HomePage() {
           <h2 className="font-headline text-5xl">Filary Pilatique</h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto">
           {/* Precision */}
-          <div className="md:col-span-7 bg-surface-container-highest rounded-3xl p-12 flex flex-col justify-between min-h-[400px] group hover:bg-primary-container transition-colors duration-500">
+          <div className="md:col-span-7 bg-white rounded-3xl p-10 flex flex-col justify-between gap-12 border border-outline-variant/10 hover:shadow-[0_20px_40px_-15px_rgba(158,56,26,0.1)] hover:-translate-y-1 transition-all duration-500 group">
             <div className="flex justify-between items-start">
-              <span className="material-symbols-outlined text-5xl text-primary group-hover:text-white transition-colors">target</span>
-              <span className="font-headline italic text-4xl text-outline-variant opacity-30 group-hover:text-white">01</span>
+              <span className="material-symbols-outlined text-4xl text-primary">target</span>
+              <span className="font-headline italic text-3xl text-outline-variant opacity-30 group-hover:text-primary transition-colors">01</span>
             </div>
             <div>
-              <h4 className="font-headline text-4xl mb-4 group-hover:text-white transition-colors">Precision</h4>
-              <p className="font-body text-on-surface-variant group-hover:text-white/80 transition-colors max-w-sm">
+              <h4 className="font-headline text-3xl mb-3">Precision</h4>
+              <p className="font-body text-on-surface-variant max-w-md leading-relaxed">
                 Skupienie na najdrobniejszym detalu ruchu, aby zapewnić maksymalną efektywność i bezpieczeństwo każdego treningu.
               </p>
             </div>
           </div>
           
           {/* Individuality */}
-          <div className="md:col-span-5 bg-surface-container rounded-3xl p-12 flex flex-col justify-between min-h-[400px]">
+          <div className="md:col-span-5 bg-[#faf4f2] rounded-3xl p-10 flex flex-col justify-between gap-12 border border-outline-variant/10 hover:shadow-[0_20px_40px_-15px_rgba(158,56,26,0.1)] hover:-translate-y-1 transition-all duration-500 group">
             <div className="flex justify-between items-start">
-              <span className="material-symbols-outlined text-5xl text-primary">person_search</span>
-              <span className="font-headline italic text-4xl text-outline-variant opacity-30">02</span>
+              <span className="material-symbols-outlined text-4xl text-primary">person_search</span>
+              <span className="font-headline italic text-3xl text-outline-variant opacity-30 group-hover:text-primary transition-colors">02</span>
             </div>
             <div>
-              <h4 className="font-headline text-4xl mb-4">Individuality</h4>
-              <p className="font-body text-on-surface-variant">
+              <h4 className="font-headline text-3xl mb-3">Individuality</h4>
+              <p className="font-body text-on-surface-variant leading-relaxed">
                 Dostosowujemy program do unikalnych potrzeb Twojej sylwetki i celów, które chcesz osiągnąć.
               </p>
             </div>
           </div>
           
           {/* Community Image */}
-          <div className="md:col-span-5 rounded-3xl overflow-hidden relative min-h-[400px]">
+          <div className="md:col-span-5 rounded-3xl overflow-hidden relative min-h-[300px] group hover:shadow-[0_20px_40px_-15px_rgba(158,56,26,0.2)] hover:-translate-y-1 transition-all duration-500">
             <img
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               alt="Group pilates class focusing on community and support"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3oUBwMcNtk3cavW0h02xfJSZJ3zPA-48mtcU1CYmPh-PLfa-kmWVO99Mxmwhe8KC2int93PePvmbiB4OH6nrBtlLTT-sDxAUfSIKD6FkSduLpixzrYTyNpW6Wr8HGXrdeUAHRILWNf6pdUo-xWUSQU6WZAy2lZq_JE9pxam-Qomv3_aAsYWQCYALUD0JQlJTn9jR0Syj0q1nhtZhYrEBDzoTmtjkDOcQtKNh9HT3TGOGH6XJ3zq8j2XOxjmhyn3Tu0RW7R30i4n2v"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-            <div className="absolute bottom-10 left-10 text-white">
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
+            <div className="absolute bottom-10 left-10 text-on-surface z-10">
               <h4 className="font-headline text-3xl">Lokalna społeczność</h4>
             </div>
           </div>
           
           {/* Community Text */}
-          <div className="md:col-span-7 bg-white p-12 rounded-3xl flex flex-col justify-between border border-outline-variant/10 shadow-sm">
+          <div className="md:col-span-7 bg-white p-10 rounded-3xl flex flex-col justify-between gap-12 border border-outline-variant/10 hover:shadow-[0_20px_40px_-15px_rgba(158,56,26,0.1)] hover:-translate-y-1 transition-all duration-500 group">
             <div className="flex justify-between items-start">
-              <span className="material-symbols-outlined text-5xl text-primary">groups</span>
-              <span className="font-headline italic text-4xl text-outline-variant opacity-30">03</span>
+              <span className="material-symbols-outlined text-4xl text-primary">groups</span>
+              <span className="font-headline italic text-3xl text-outline-variant opacity-30 group-hover:text-primary transition-colors">03</span>
             </div>
             <div>
-              <h4 className="font-headline text-4xl mb-4">Community</h4>
-              <p className="font-body text-on-surface-variant max-w-md">
+              <h4 className="font-headline text-3xl mb-3">Community</h4>
+              <p className="font-body text-on-surface-variant max-w-md leading-relaxed">
                 Tworzymy miejsce, w którym pasja do ruchu łączy ludzi. Wspólne treningi, warsztaty i wyjazdy integracyjne to nasze serce.
               </p>
-              <Link href="/o-nas" className="inline-flex items-center gap-2 text-primary font-bold font-label uppercase text-[12px] tracking-widest mt-8 group">
+              <Link href="/o-nas" className="inline-flex items-center gap-2 text-primary font-bold font-label uppercase text-[12px] tracking-widest mt-6 hover:translate-x-2 transition-transform">
                 Dowiedz się więcej 
-                <span className="material-symbols-outlined text-[18px] group-hover:translate-x-2 transition-transform">east</span>
+                <span className="material-symbols-outlined text-[18px]">east</span>
               </Link>
             </div>
           </div>
