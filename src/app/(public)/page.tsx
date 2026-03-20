@@ -41,7 +41,7 @@ export default function HomePage() {
               <img
                 className="w-full aspect-[4/5] object-cover rounded-xl shadow-2xl"
                 alt="Close-up of pilates movement showing form and control"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqLQnguqvAFxeDdYR4E_aMwP4sBRlc-KXTub6g7ntrCpdcEy51Rvf-wEO72z_LplgzLeT9-blD_OdXatmiISbCdn4fvPhxS6gI5Uk3SZDzhK4Ytn8m9Xkpe-9H8aO8BWj4Akt-aNN0mx3-LjD2i7vJjPxNsMY3kl1xIDbaUo5EdDG2bYI7fLc6gDdbg6dHxfr-kU-vzFN04PAJ4RgZ9oIZr7SpoFBDebdZw41974ecPA-ZKb34vhssw7aXvlm5jQ3B2gNlrJL7fbjr"
+                src="/movement-perfection.png"
               />
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary-container/20 rounded-full backdrop-blur-3xl -z-10"></div>
             </div>
