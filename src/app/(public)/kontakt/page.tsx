@@ -13,9 +13,9 @@ export default function ContactPage() {
       </section>
 
       {/* Bento Grid Layout */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 px-6 md:px-16 lg:px-24">
+      <div className="max-w-3xl mx-auto px-6 md:px-16 lg:px-24 mb-32">
         {/* Contact Form Card */}
-        <div className="lg:col-span-7 bg-surface-container-lowest rounded-[2rem] p-8 md:p-12 shadow-[0_24px_48px_rgba(41,23,18,0.04)]">
+        <div className="bg-surface-container-lowest rounded-[2rem] p-8 md:p-12 shadow-[0_24px_48px_rgba(41,23,18,0.04)]">
           <form className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="relative">
@@ -44,58 +44,6 @@ export default function ContactPage() {
               Wyślij wiadomość
             </button>
           </form>
-        </div>
-
-        {/* Side Info Column */}
-        <div className="lg:col-span-5 space-y-8">
-          {/* Direct Contact */}
-          <div className="bg-surface-container-low rounded-[2rem] p-8 space-y-6">
-            <div>
-              <h3 className="font-label text-[10px] uppercase tracking-widest font-bold text-primary mb-4">Bezpośredni kontakt</h3>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>call</span>
-                  <span className="font-body text-lg text-on-surface">+48 500 600 700</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>mail</span>
-                  <span className="font-body text-lg text-on-surface">hello@pilatique.pl</span>
-                </div>
-              </div>
-            </div>
-            <div className="pt-6 border-t border-outline-variant/10">
-              <h3 className="font-label text-[10px] uppercase tracking-widest font-bold text-primary mb-4">Social media</h3>
-              <div className="flex gap-4">
-                <a className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary-container hover:bg-primary-container hover:text-white transition-all duration-400" href="#">
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>camera</span>
-                </a>
-                <a className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary-container hover:bg-primary-container hover:text-white transition-all duration-400" href="#">
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>public</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Studio Card */}
-          <div className="bg-surface-container-highest rounded-[2rem] overflow-hidden">
-            <div className="p-8">
-              <h3 className="font-label text-[10px] uppercase tracking-widest font-bold text-primary mb-4">Godziny otwarcia</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between font-body text-sm">
-                  <span className="text-on-surface-variant">Poniedziałek - Piątek</span>
-                  <span className="font-bold">07:00 - 21:00</span>
-                </div>
-                <div className="flex justify-between font-body text-sm">
-                  <span className="text-on-surface-variant">Sobota</span>
-                  <span className="font-bold">09:00 - 16:00</span>
-                </div>
-                <div className="flex justify-between font-body text-sm">
-                  <span className="text-on-surface-variant">Niedziela</span>
-                  <span className="font-bold">Zamknięte</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
