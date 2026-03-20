@@ -59,8 +59,8 @@ export default function AboutPage() {
           <div className="order-1 lg:order-2">
             <h3 className="font-headline text-5xl md:text-6xl text-on-background mb-8 leading-tight italic">Wizja Pilatique</h3>
             <div className="space-y-6 text-on-surface-variant font-body text-lg leading-relaxed">
-              <p>Dla Anny Pilates nigdy nie był tylko zestawem ćwiczeń. To język, w którym ciało komunikuje się z umysłem, budując siłę nie tylko fizyczną, ale i mentalną.</p>
-              <p>Zanim powstało Pilatique, Anna spędziła lata na doskonaleniu techniki w najlepszych światowych akademiach. Jej wizją było stworzenie miejsca, które celebruje każdy milimetr precyzyjnego ruchu.</p>
+              <p>Dla Marty Pilates nigdy nie był tylko zestawem ćwiczeń. To język, w którym ciało komunikuje się z umysłem, budując siłę nie tylko fizyczną, ale i mentalną.</p>
+              <p>Zanim powstało Pilatique, Marta spędziła lata na doskonaleniu techniki w najlepszych światowych akademiach. Jej wizją było stworzenie miejsca, które celebruje każdy milimetr precyzyjnego ruchu.</p>
               <blockquote className="border-l-4 border-primary-container pl-6 py-2 italic font-headline text-2xl text-primary mt-8">
                 "W Pilatique nie budujemy mięśni. Budujemy świadomość, która promieniuje na całe Twoje życie."
               </blockquote>

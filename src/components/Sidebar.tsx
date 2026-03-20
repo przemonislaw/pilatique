@@ -36,26 +36,26 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           <Image
             src="/Logo.jpeg"
             alt="Pilatique"
-            width={128}
-            height={128}
+            width={147}
+            height={147}
             priority
-            className="w-32 h-32 rounded-full border-2 border-white/20 mb-6 object-cover mix-blend-screen invert grayscale contrast-200 brightness-150"
+            className="w-[147px] h-[147px] rounded-full border-2 border-white/20 mb-3 object-cover mix-blend-screen invert grayscale contrast-200 brightness-150"
           />
         </Link>
         <h1 className="font-headline italic text-3xl tracking-tight text-white mb-2 drop-shadow-md">
           PILATIQUE
         </h1>
       </div>
-      <div className="flex flex-col space-y-1 w-full px-8 pb-12">
+      <div className="flex flex-col space-y-0 w-full px-8 pb-12">
         {navLinks.map((item) => {
           if (item.type === "header") {
             return (
               <div
                 key={item.label}
-                className="py-3 px-4 flex items-center gap-3 mt-4 mb-1 text-white/50"
+                className="py-1 px-4 flex items-center gap-3 mt-2 mb-1 text-white/50"
               >
-                <span className="material-symbols-outlined">{item.icon}</span>
-                <span className="font-label uppercase tracking-widest text-[13px] font-bold">
+                <span className="material-symbols-outlined text-[20px]">{item.icon}</span>
+                <span className="font-label uppercase tracking-widest text-[11px] font-bold">
                   {item.label}
                 </span>
               </div>
@@ -70,14 +70,14 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
               href={item.href!}
               onClick={onNavigate}
               className={[
-                "rounded-lg py-3 px-4 flex items-center gap-3 transition-all duration-300 ease-in-out",
+                "rounded-lg py-2 px-4 flex items-center gap-3 transition-all duration-300 ease-in-out",
                 isExactActive
                   ? "text-white font-black bg-white/10 backdrop-blur-md shadow-sm border border-white/10"
                   : "text-white/80 font-medium hover:bg-white/20",
               ].join(" ")}
             >
-              <span className="material-symbols-outlined">{item.icon}</span>
-              <span className="font-label uppercase tracking-widest text-[13px] font-bold">
+              <span className="material-symbols-outlined text-[20px]">{item.icon}</span>
+              <span className="font-label uppercase tracking-widest text-[11px] font-bold">
                 {item.label}
               </span>
             </Link>
